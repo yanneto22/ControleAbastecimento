@@ -24,3 +24,5 @@ class CompraCombustivel(models.Model):
     data = models.DateField()
     quantidadelitros = models.PositiveSmallIntegerField()
     precolitro = models.DecimalField()
+
+    #teste
