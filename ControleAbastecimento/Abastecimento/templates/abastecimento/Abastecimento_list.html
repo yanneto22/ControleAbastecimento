@@ -1,0 +1,8 @@
+{% extends "abastecimento/base.html" %}
+{% block body %}
+    <h2>Lista de Abastecimentos</h2>
+        {% for object in object_list %}
+        <h3>{{ object.nome }}</h3>
+        <h3>{{ object.cpf }}</h3>
+        {% endfor %}
+{% endblock %}
