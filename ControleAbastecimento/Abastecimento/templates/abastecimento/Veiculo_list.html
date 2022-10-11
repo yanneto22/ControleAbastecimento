@@ -2,12 +2,13 @@
 {% block body %}
     <nav class="navbar bg-dark justify-content-center" style="color:white;"><h2>Lista de Veiculos</h2></nav>
         {% for object in object_list %}
+        <h3>{{ object.id }}</h3>
         <h3>{{ object.placa }}</h3>
         <h3>{{ object.descricao }}</h3>
         <h3>{{ object.capacidadetanque }}</h3>
         {% endfor %}
 
-        <button type="button" class="btn btn-primary">Add Veiculo</button>
+        <a href="{% url 'criar_veic' %}"><button type="button" class="btn btn-primary">Add Veiculo</button></a>
         <button type="button" class="btn btn-secondary">Update Veiculo</button>
         <button type="button" class="btn btn-dark">Delete Veiculo</button>
 

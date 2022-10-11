@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
-    background-color: black;
+    background: black;
 }
 
 a{
@@ -9,5 +9,6 @@ a{
 }
 
 a:hover{
- color:blueviolet;
+ font-size:25px;
+ 
 }

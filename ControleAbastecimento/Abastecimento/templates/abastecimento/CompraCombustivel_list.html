@@ -1,8 +1,11 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
-    <h2>Lista de Compras</h2>
+<nav class="navbar bg-dark justify-content-center" style="color:white;"><h2>Lista de Compras</h2></nav>
         {% for object in object_list %}
         <h3>{{ object.nome }}</h3>
         <h3>{{ object.cpf }}</h3>
         {% endfor %}
+        <a href="{% url 'criar_compra' %}"><button type="button" class="btn btn-primary">Add Compra</button></a>
+        <button type="button" class="btn btn-secondary">Update Compra</button>
+        <button type="button" class="btn btn-dark">Delete Compra</button>
 {% endblock %}

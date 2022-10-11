@@ -1,0 +1,10 @@
+{% extends "abastecimento/base.html" %}
+{% block body %}
+    <nav class="navbar bg-dark justify-content-center" style="color:white;"><h2>Cadastrar Abastecimento</h2></nav>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+    
+{% endblock %}
