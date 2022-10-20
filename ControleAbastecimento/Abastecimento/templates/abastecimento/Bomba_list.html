@@ -1,11 +1,33 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
 <nav class="navbar bg-dark justify-content-center" style="color:white;"><h2>Lista de Bombas</h2></nav>
-        {% for object in object_list %}
-        <h3>{{ object.nome }}</h3>
-        <h3>{{ object.cpf }}</h3>
-        {% endfor %}
-        <a href="{% url 'criar_bomba' %}"><button type="button" class="btn btn-primary">Add Bomba</button></a>
-        <button type="button" class="btn btn-secondary">Update Bomba</button>
-        <button type="button" class="btn btn-dark">Delete Bomba</button>
+<div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
+        <div class="d-flex justify-content-center">
+        <table class="table table-dark table-striped justify-content-center">
+                <thead>
+                        <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Tipo Combustivel</th>
+                                <th scope="col">Qnt Estoque</th>
+                                <th scope="col">Capacidade da Bomba</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                                {% for object in object_list %}
+                                <th scope="row">{{ object.id }}</th>
+                                <td>{{ object.tipocombustivel }}</td> 
+                                <td>{{ object.quantidadelitros }}</td>
+                                <td>{{ object.capacidadebomba }}</td>
+                                {% endfor %}
+                        </tr>
+                </tbody>
+        </table>
+        </div>
+                <div class="container d-flex my-2 justify-content-center"> 
+                <a href="{% url 'criar_bomba' %}"><button type="button" class="btn btn-primary">Adicionar Bomba</button></a>
+                <!--<button type="button" class="btn btn-secondary">Update Abastecimento</button>
+                <button type="button" class="btn btn-dark">Delete Abastecimento</button>-->
+                </div>
+        </div>
 {% endblock %}
