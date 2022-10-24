@@ -1,6 +1,6 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
-<nav class="navbar bg-dark justify-content-center" style="color:white;"><h2>Lista de Abastecimentos</h2></nav>
+<nav class="navbar bg-dark" style="color:white;"><h2 style="margin-left:45px; margin-top:0px;">Lista de Abastecimentos</h2></nav>
         <div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
         <div class="d-flex justify-content-center">
         <table class="table table-dark table-striped justify-content-center">
@@ -24,7 +24,7 @@
                 </tbody>
         </table>
         </div>
-                <div class="container d-flex my-2 justify-content-center"> 
+                <div class="container d-flex my-2 "> 
                 <a href="{% url 'criar_abast' %}"><button type="button" class="btn btn-primary">Adicionar Abastecimento</button></a>
                 <!--<button type="button" class="btn btn-secondary">Update Abastecimento</button>
                 <button type="button" class="btn btn-dark">Delete Abastecimento</button>-->
