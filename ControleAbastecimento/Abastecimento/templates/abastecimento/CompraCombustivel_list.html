@@ -1,33 +1,38 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
-<nav class="navbar bg-dark" style="color:white;"><h2 style="margin-left: 45px;">Lista de Compras</h2></nav>
+<nav class="navbar bg-dark" style="color:white;">
+        <div class="container">
+                <h2>Lista de Compras</h2>
+        </div>
+</nav>
 <div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
         <div class="d-flex justify-content-center">
-        <table class="table table-dark table-striped justify-content-center">
-                <thead>
-                        <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Qnt Litros</th>
-                                <th scope="col">Preço</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                                {% for object in object_list %}
-                                <th scope="row">{{ object.id }}</th>
-                                <td>{{ object.data }}</td> 
-                                <td>{{ object.quantidadelitros }}</td>
-                                <td>{{ object.precolitro }}</td>
-                                {% endfor %}
-                        </tr>
-                </tbody>
-        </table>
+                <table class="table table-dark table-striped justify-content-center">
+                        <thead>
+                                <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Qnt Litros</th>
+                                        <th scope="col">Preço</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        {% for object in object_list %}
+                                        <th scope="row">{{ object.id }}</th>
+                                        <td>{{ object.data }}</td>
+                                        <td>{{ object.quantidadelitros }}</td>
+                                        <td>{{ object.precolitro }}</td>
+                                        {% endfor %}
+                                </tr>
+                        </tbody>
+                </table>
         </div>
-                <div class="container d-flex my-2"> 
-                <a href="{% url 'criar_compra' %}"><button type="button" class="btn btn-primary">Adicionar Compra</button></a>
+        <div class="container d-flex my-2">
+                <a href="{% url 'criar_compra' %}"><button type="button" class="btn btn-primary">Adicionar
+                                Compra</button></a>
                 <!--<button type="button" class="btn btn-secondary">Update Abastecimento</button>
                 <button type="button" class="btn btn-dark">Delete Abastecimento</button>-->
-                </div>
         </div>
+</div>
 {% endblock %}

@@ -1,33 +1,40 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
-<nav class="navbar bg-dark" style="color:white;"><h2 style="margin-left:45px; margin-top:0px;">Lista de Abastecimentos</h2></nav>
-        <div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
-        <div class="d-flex justify-content-center">
-        <table class="table table-dark table-striped justify-content-center">
-                <thead>
-                        <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Qnt Litros</th>
-                                <th scope="col">Odometro</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                                {% for object in object_list %}
-                                <th scope="row">{{ object.id }}</th>
-                                <td>{{ object.data }}</td> 
-                                <td>{{ object.quantidadelitros }}</td>
-                                <td>{{ object.km_odometro }}</td>
-                                {% endfor %}
-                        </tr>
-                </tbody>
-        </table>
+<nav class="navbar bg-dark" style="color:white;">
+        <div class="container">
+                <h2>Lista de Abastecimento</h2>
         </div>
-                <div class="container d-flex my-2 "> 
-                <a href="{% url 'criar_abast' %}"><button type="button" class="btn btn-primary">Adicionar Abastecimento</button></a>
+</nav>
+<div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
+        <div class="d-flex justify-content-center">
+                <table class="table table-dark table-striped justify-content-center">
+                        <thead>
+                                <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Qnt Litros</th>
+                                        <th scope="col">Odometro</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for object in object_list %}
+                                <tr>
+
+                                        <td>{{ object.id }}</td>
+                                        <td>{{ object.data }}</td>
+                                        <td>{{ object.quantidadelitros }}</td>
+                                        <td>{{ object.km_odometro }}</td>
+
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                </table>
+        </div>
+        <div class="container d-flex my-2 ">
+                <a href="{% url 'criar_abast' %}"><button type="button" class="btn btn-primary">Adicionar
+                                Abastecimento</button></a>
                 <!--<button type="button" class="btn btn-secondary">Update Abastecimento</button>
                 <button type="button" class="btn btn-dark">Delete Abastecimento</button>-->
-                </div>
         </div>
+</div>
 {% endblock %}

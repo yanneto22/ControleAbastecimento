@@ -1,34 +1,39 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
-    <nav class="navbar bg-dark" style="color:white;"><h2 style="margin-left: 45px;">Lista de Veiculos</h2></nav>
-    <div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
-        <div class="d-flex justify-content-center">
-        <table class="table table-dark table-striped justify-content-center">
-                <thead>
-                        <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Placa</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Capacidade do Tanque</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                                {% for object in object_list %}
-                                <th scope="row">{{ object.id }}</th>
-                                <td>{{ object.placa }}</td> 
-                                <td>{{ object.descricao }}</td>
-                                <td>{{ object.capacidadetanque }}</td>
-                                {% endfor %}
-                        </tr>
-                </tbody>
-        </table>
+<nav class="navbar bg-dark" style="color:white;">
+        <div class="container">
+                <h2>Lista de Veículos</h2>
         </div>
-                <div class="container d-flex my-2 "> 
-                <a href="{% url 'criar_veic' %}"><button type="button" class="btn btn-primary">Adicionar Veiculo</button></a>
+</nav>
+<div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
+        <div class="d-flex justify-content-center">
+                <table class="table table-dark table-striped justify-content-center">
+                        <thead>
+                                <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Placa</th>
+                                        <th scope="col">Descrição</th>
+                                        <th scope="col">Capacidade do Tanque</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        {% for object in object_list %}
+                                        <th scope="row">{{ object.id }}</th>
+                                        <td>{{ object.placa }}</td>
+                                        <td>{{ object.descricao }}</td>
+                                        <td>{{ object.capacidadetanque }}</td>
+                                        {% endfor %}
+                                </tr>
+                        </tbody>
+                </table>
+        </div>
+        <div class="container d-flex my-2 ">
+                <a href="{% url 'criar_veic' %}"><button type="button" class="btn btn-primary">Adicionar
+                                Veiculo</button></a>
                 <!--<button type="button" class="btn btn-secondary">Update Abastecimento</button>
                 <button type="button" class="btn btn-dark">Delete Abastecimento</button>-->
-                </div>
         </div>
+</div>
 
 {% endblock %}

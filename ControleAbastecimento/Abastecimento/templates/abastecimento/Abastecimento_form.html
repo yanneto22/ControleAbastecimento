@@ -1,10 +1,19 @@
 {% extends "abastecimento/base.html" %}
 {% block body %}
-    <nav class="navbar bg-dark justify-content-center" style="color:white;"><h2>Cadastrar Abastecimento</h2></nav>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
-    
+{% load crispy_forms_tags %}
+<nav class="navbar bg-dark" style="color:white;">
+    <div class="container">
+        <h2>Cadastrar Abastecimento</h2>
+    </div>
+</nav>
+<div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
+    <div class="d-flex justify-content-center text-light">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button class="btn btn-primary" type="submit" value="Save">Save</button>
+        </form>
+    </div>
+</div>
+
 {% endblock %}
