@@ -13,17 +13,26 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Nome</th>
                                         <th scope="col">CPF</th>
-
+                                        <th scope="col"></th>
                                 </tr>
                         </thead>
                         <tbody>
+
+                                {% for object in object_list %}
                                 <tr>
-                                        {% for object in object_list %}
                                         <th scope="row">{{ object.id }}</th>
                                         <td>{{ object.nome }}</td>
                                         <td>{{ object.cpf }}</td>
-                                        {% endfor %}
+                                        <td class='d-flex justify-content-end'>
+                                                <a class='mx-1' href="{% url 'editar_func' object.id %}"><button
+                                                                type="button"
+                                                                class="btn btn-warning">Editar</button></a>
+                                                <a class='mx-1' href="{% url 'del_func' object.id %}"><button
+                                                                type="button" class="btn btn-danger">Deletar</button></a>
+                                        </td>
                                 </tr>
+                                {% endfor %}
+
                         </tbody>
                 </table>
         </div>

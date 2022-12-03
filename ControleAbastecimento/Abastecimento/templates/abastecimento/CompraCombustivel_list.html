@@ -14,17 +14,31 @@
                                         <th scope="col">Data</th>
                                         <th scope="col">Qnt Litros</th>
                                         <th scope="col">Preço</th>
+                                        <th scope="col">Bomba</th>
+                                        <th scope="col"></th>
                                 </tr>
                         </thead>
                         <tbody>
+
+                                {% for object in object_list %}
                                 <tr>
-                                        {% for object in object_list %}
                                         <th scope="row">{{ object.id }}</th>
                                         <td>{{ object.data }}</td>
                                         <td>{{ object.quantidadelitros }}</td>
                                         <td>{{ object.precolitro }}</td>
-                                        {% endfor %}
+                                        <td>{% for bomba in object.bomba.all %}
+                                                {{ bomba.pk }}
+                                            {% endfor %}</td>
+                                        <td class='d-flex justify-content-end'>
+                                                <a class='mx-1' href="{% url 'editar_compra' object.id %}"><button
+                                                                type="button"
+                                                                class="btn btn-warning">Editar</button></a>
+                                                <a class='mx-1' href="{% url 'del_compra' object.id %}"><button
+                                                                type="button" class="btn btn-danger">Deletar</button></a>
+                                        </td>
                                 </tr>
+                                {% endfor %}
+
                         </tbody>
                 </table>
         </div>

@@ -2,7 +2,7 @@
 {% block body %}
 <nav class="navbar bg-dark" style="color:white;">
     <div class="container">
-        <h2>Cadastrar Compra</h2>
+        <h2>Editar {{ object }}</h2>
     </div>
 </nav>
 <div class="container p-2 mt-2 bg-dark justify-content-center border border-light rounded">
@@ -10,7 +10,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="btn btn-primary" type="submit" value="Save">Salvar</button>    
+            <button class="btn btn-primary" type="submit" value="Update">Salvar Edição</button>
         </form>
     </div>
 </div>

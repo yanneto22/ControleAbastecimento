@@ -14,25 +14,33 @@
                                         <th scope="col">Placa</th>
                                         <th scope="col">Descrição</th>
                                         <th scope="col">Capacidade do Tanque</th>
+                                        <th scope="col"></th>
                                 </tr>
                         </thead>
                         <tbody>
+
+                                {% for object in object_list %}
                                 <tr>
-                                        {% for object in object_list %}
                                         <th scope="row">{{ object.id }}</th>
                                         <td>{{ object.placa }}</td>
                                         <td>{{ object.descricao }}</td>
                                         <td>{{ object.capacidadetanque }}</td>
-                                        {% endfor %}
+                                        <td class='d-flex justify-content-end'>
+                                                <a class='mx-1' href="{% url 'editar_veiculo' object.id %}"><button
+                                                                type="button"
+                                                                class="btn btn-warning">Editar</button></a>
+                                                <a class='mx-1' href="{% url 'del_veiculo' object.id %}"><button
+                                                                type="button" class="btn btn-danger">Deletar</button></a>
+                                        </td>
                                 </tr>
+                                {% endfor %}
+
                         </tbody>
                 </table>
         </div>
         <div class="container d-flex my-2 ">
                 <a href="{% url 'criar_veic' %}"><button type="button" class="btn btn-primary">Adicionar
                                 Veiculo</button></a>
-                <!--<button type="button" class="btn btn-secondary">Update Abastecimento</button>
-                <button type="button" class="btn btn-dark">Delete Abastecimento</button>-->
         </div>
 </div>
 

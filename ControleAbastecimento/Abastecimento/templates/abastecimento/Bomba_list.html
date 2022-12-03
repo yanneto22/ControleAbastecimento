@@ -14,17 +14,27 @@
                                         <th scope="col">Tipo Combustivel</th>
                                         <th scope="col">Qnt Estoque</th>
                                         <th scope="col">Capacidade da Bomba</th>
+                                        <th scope="col"></th>
                                 </tr>
                         </thead>
                         <tbody>
+
+                                {% for object in object_list %}
                                 <tr>
-                                        {% for object in object_list %}
                                         <th scope="row">{{ object.id }}</th>
                                         <td>{{ object.tipocombustivel }}</td>
-                                        <td>{{ object.quantidadelitros }}</td>
+                                        <td>{{ object.quantidadedeestoque }}</td>
                                         <td>{{ object.capacidadebomba }}</td>
-                                        {% endfor %}
+                                        <td class='d-flex justify-content-end'>
+                                                <a class='mx-1' href="{% url 'editar_bomba' object.id %}"><button
+                                                                type="button"
+                                                                class="btn btn-warning">Editar</button></a>
+                                                <a class='mx-1' href="{% url 'del_bomba' object.id %}"><button
+                                                                type="button" class="btn btn-danger">Deletar</button></a>
+                                        </td>
                                 </tr>
+                                {% endfor %}
+
                         </tbody>
                 </table>
         </div>

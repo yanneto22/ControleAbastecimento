@@ -18,6 +18,9 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from Abastecimento.views import CreateAbastecimento, CreateBomba, CreateCompra, CreateFuncionario, CreateVeiculo, VeiculosList, FuncionarioList, BombaList, AbastecimentoList, CompraList
+from Abastecimento.views import UpdateVeiculo, UpdateAbastecimento, UpdateCompra, UpdateBomba, UpdateFuncionario
+from Abastecimento.views import DeleteFuncionario, DeleteAbastecimento, DeleteBomba, DeleteCompra, DeleteVeiculo
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +34,16 @@ urlpatterns = [
     path('criarbomba/', CreateBomba.as_view(success_url='/bombas/'), name='criar_bomba'),
     path('criarabast/', CreateAbastecimento.as_view(success_url='/abastecimento/'), name='criar_abast'),
     path('criarcompra/', CreateCompra.as_view(success_url='/compras/'), name='criar_compra'),
+    path('editarveic/<int:pk>', UpdateVeiculo.as_view(success_url='/veiculos/'), name='editar_veiculo'),
+    path('editarabast/<int:pk>', UpdateAbastecimento.as_view(success_url='/abastecimento/'), name='editar_abast'),
+    path('editarcomp/<int:pk>', UpdateCompra.as_view(success_url='/compras/'), name='editar_compra'),
+    path('editarbomba/<int:pk>', UpdateBomba.as_view(success_url='/bombas/'), name='editar_bomba'),
+    path('editarfunc/<int:pk>', UpdateFuncionario.as_view(success_url='/funcionario/'), name='editar_func'),
+    path('delfunc/<int:pk>', DeleteFuncionario.as_view(success_url='/funcionario/'), name='del_func'),
+    path('delabastecimento/<int:pk>', DeleteAbastecimento.as_view(success_url='/abastecimento/'), name='del_abast'),
+    path('delveiculo/<int:pk>', DeleteVeiculo.as_view(success_url='/veiculos/'), name='del_veiculo'),
+    path('delbomba/<int:pk>', DeleteBomba.as_view(success_url='/bombas/'), name='del_bomba'),
+    path('delcompra/<int:pk>', DeleteCompra.as_view(success_url='/compras/'), name='del_compra'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
